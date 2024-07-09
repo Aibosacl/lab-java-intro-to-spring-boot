@@ -1,3 +1,4 @@
+# exercise 1
 CREATE DATABASE doctor_db;
 
 USE doctor_db;
@@ -17,6 +18,7 @@ CREATE TABLE patient (
                          admitted_by INT,
                          FOREIGN KEY (admitted_by) REFERENCES employee(employee_id)
 );
+
 
 INSERT INTO employee (employee_id, department, name, status)
 VALUES
@@ -38,29 +40,38 @@ VALUES
     (5, 'Marian Garcia', '1999-02-15', 172456
     );
 
+
+# exercise 3
 SELECT * FROM employee;
 
+# exercise 4
 SELECT * FROM employee WHERE employee_id = 172456;
 
+# exercise 5
 SELECT * FROM employee WHERE status = status;
 
+# exercise 6
 SELECT * FROM employee WHERE department = department;
 
+# exercise 7
 SELECT * FROM patient;
+
 
 SELECT * FROM patient WHERE patient_id = 1;
 
+
 SELECT * FROM patient WHERE date_of_birth BETWEEN 1931-11-10 AND 1999-02-15;
 
+
 SELECT p.* FROM patient p
-                    JOIN employee e
-                         ON p.admitted_by = e.employee_id
+JOIN employee e
+ON p.admitted_by = e.employee_id
 WHERE e.department = 'cardiology';
 
 
 SELECT p.* FROM patient p
-                    JOIN employee e
-                         ON p.admitted_by = e.employee_id
+JOIN employee e
+ON p.admitted_by = e.employee_id
 WHERE e.status = 'OFF';
 
 
